@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+    <!-- Подключаем jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Подключаем плагин Popper -->
+    <script crossorigin="anonymous"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <!-- Подключаем Bootstrap JS -->
+    <script crossorigin="anonymous"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Student List</title>
+</head>
+<body>
+<h2>List of Students</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New</button>
+
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Department</td>
+        <td>Updated By</td>
+        <td>Updated On</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    </thead>
+
+    <tr th:each="student:${students}">
+        <td th:text="${student.Id}">Id</td>
+        <td th:text="${student.name}">Name</td>
+        <td th:text="${student.department}">Department</td>
+        <td th:text="${student.updatedBy}">Updated By</td>
+        <td th:text="${student.updatedOn}">Updated On</td>
+        <td><a th:href="@{/students/getOne/(Id=${student.Id})}"  class="btn btn-warning">Edit</a></td>
+        <td><a th:href="@{/students/delete/(Id=${student.Id})}"   class="btn btn-danger" id="deleteButton">Delete</a></td>
+    </tr>
+</table>
+
+</table>
+</body>
+</html>

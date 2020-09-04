@@ -1,4 +1,4 @@
-This is  a simple Web Thymeleaf Application.
+This is  a simple Web Thymeleaf Application,.
  
 ## Description
  This is a web application with pages:
