@@ -19,6 +19,7 @@
     <script crossorigin="anonymous"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
     <title>Student List</title>
 </head>
 <body>
@@ -45,11 +46,110 @@
         <td th:text="${student.department}">Department</td>
         <td th:text="${student.updatedBy}">Updated By</td>
         <td th:text="${student.updatedOn}">Updated On</td>
-        <td><a th:href="@{/students/getOne/(Id=${student.Id})}"  class="btn btn-warning">Edit</a></td>
-        <td><a th:href="@{/students/delete/(Id=${student.Id})}"   class="btn btn-danger" id="deleteButton">Delete</a></td>
+        <td> <a   class="btn btn-outline-warning"> Edit   </a> </td>
+        <td><a th:href="@{/students/delete/(Id=${student.Id})}" class="btn  btn-outline-danger" id="deleteButton">Delete</a></td>
     </tr>
 </table>
 
-</table>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <form th:action="@{/students/addNew}" method="post">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="id">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Department:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="department">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Updated By:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="updatedBy">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Updated On:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="updatedOn">
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+    <form th:action="@{/students/update}" method="put">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="idEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="nameEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Department:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="departmentEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Updated By:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="updatedByEdit">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Updated On:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="updatedOnEdit">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 </body>
 </html>
