@@ -22,18 +22,21 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-
     @RequestMapping("/getAll")
     public String getAll(Model model) {
         List<Student> students = studentService.getAll();
         model.addAttribute("students", students);
+
+        String userName = "Amigo!";
+        model.addAttribute("userName", userName);
         return "students";
     }
 
     @RequestMapping("/getOne")
     @ResponseBody
     public Optional<Student> getOne(Integer id) {
-     return    studentService.getOne(id);
+
+        return   studentService.getOne(id);
     }
 
     @PostMapping("/addNew" )
@@ -45,6 +48,12 @@ public class StudentController {
     @RequestMapping(value="/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public   String update (Student student){
       studentService.update(student);
+        return "redirect:/students/getAll";
+    }
+
+    @RequestMapping(value="/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
+        studentService.delete(id);
         return "redirect:/students/getAll";
     }
 }
