@@ -3,19 +3,29 @@ package com.setrina.thymeleafapp.models;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 public class Student {
-
+    @NotNull
     @Id
     private Integer id;
+    @NotNull
+    @NotBlank
     private String name;
+    @NotNull
+    @NotBlank
     private String department;
+    @NotNull
+    @NotBlank
     private String updatedBy;
-
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @PastOrPresent
     private Date updatedOn;
 
     public Student(Integer id, String name, String department, String updatedBy, Date updatedOn) {
@@ -73,12 +83,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", department='" + department + '\'' +
-                ", updatedBy='" + updatedBy + '\'' +
-                ", updatedOn=" + updatedOn +
-                '}';
+        return String.format("id: [%s],  name: [%s], department: [%s], updatedBy: [%s], updatedOn: [%s],",
+                id, name, department, updatedBy, updatedOn);
     }
 }

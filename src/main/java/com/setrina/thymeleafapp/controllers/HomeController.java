@@ -1,4 +1,4 @@
-package com.setrina.thymeleafapp;
+package com.setrina.thymeleafapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
