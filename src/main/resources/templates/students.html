@@ -74,7 +74,7 @@
                 <td>Id</td>
                 <td>Name</td>
                 <td>Department</td>
-                <td>Updated By</td>
+                <td>Specialty</td>
                 <td>Updated On</td>
                 <td>Edit</td>
                 <td>Delete</td>
@@ -85,7 +85,7 @@
                 <td th:text="${student.Id}">Id</td>
                 <td th:text="${student.name}">Name</td>
                 <td th:text="${student.department}">Department</td>
-                <td th:text="${student.updatedBy}">Updated By</td>
+                <td th:text="${student.updatedBy}">Specialty</td>
                 <td th:text="${student.updatedOn}">Updated On</td>
                 <td><a th:href="@{/students/getOne/(id=${student.id})}"  class="btn btn-warning">Edit</a></td>
                 <td><a th:href="@{/students/delete/(id=${student.id})}"   class="btn btn-danger" id="deleteButton">Delete</a></td>
@@ -95,7 +95,6 @@
     </div>
 
 </div><!-- /.container -->
-
 
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -127,13 +126,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Updated By:</label>
+                        <label for="recipient-name" class="col-form-label">Specialty:</label>
                         <input type="text" class="form-control" id="recipient-name" name="updatedBy">
                     </div>
 
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Updated On:</label>
-                        <input type="text" class="form-control" id="recipient-name" name="updatedOn">
+                        <input type="date" class="form-control" id="recipient-name" name="updatedOn">
                     </div>
 
                 </div>
@@ -176,13 +175,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Updated By:</label>
+                        <label for="recipient-name" class="col-form-label">Specialty:</label>
                         <input type="text" class="form-control" id="updatedByEdit" name="updatedBy">
                     </div>
 
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Updated On:</label>
-                        <input type="text" class="form-control" id="updatedOnEdit" name="updatedOn">
+                        <input type="date" class="form-control" id="updatedOnEdit" name="updatedOn">
                     </div>
 
                 </div>
